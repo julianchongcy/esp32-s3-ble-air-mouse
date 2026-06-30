@@ -8,7 +8,7 @@ A motion-controlled Bluetooth Low Energy HID mouse prototype built with an ESP32
 
 ## Demo
 
-[Watch the prototype demo video](media/air-mouse-demo.mov)
+[Watch the prototype demo video](media/air-mouse-demo.mp4)
 
 ## Project Goal
 
@@ -39,13 +39,13 @@ This project explores how raw motion sensor data can be transformed into a usabl
 
 ## Wiring
 
-| Function | ESP32-S3 Pin | Notes |
-| --- | --- | --- |
-| MPU6050 SDA | GPIO 8 | I2C data |
-| MPU6050 SCL | GPIO 9 | I2C clock |
-| Left click button | GPIO 1 | Uses `INPUT_PULLUP` |
-| Right click button | GPIO 2 | Uses `INPUT_PULLUP` |
-| Mode button | GPIO 0 | Toggles cursor and scroll modes |
+| Signal | ESP32-S3 GPIO | Purpose |
+|---|---|---|
+| MPU6050 SDA | GPIO 8 | I2C data line |
+| MPU6050 SCL | GPIO 9 | I2C clock line |
+| Left click button | GPIO 1 | BLE left mouse button input |
+| Right click button | GPIO 2 | BLE right mouse button input |
+| Mode button | GPIO 0 | Toggle between cursor and scroll modes |
 
 ## How It Works
 
@@ -69,7 +69,7 @@ This project explores how raw motion sensor data can be transformed into a usabl
 |   |-- setup.jpg
 |   `-- wiring-detail.jpg
 `-- media/
-    `-- air-mouse-demo.mov
+    `-- air-mouse-demo.mp4
 ```
 
 ## Getting Started
