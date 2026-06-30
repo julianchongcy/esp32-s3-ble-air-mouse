@@ -11,7 +11,7 @@ HijelBLEMouse mouse("Julian Air Mouse", "Julian");
 
 float deadzone = 6.0;
 
-float sensitivityX = 4.5;
+float sensitivityX = 0.9;
 float sensitivityY = 3.0;
 
 float smoothX = 0;
@@ -71,9 +71,9 @@ void loop() {
   float absY = abs(y);
 
   if (y > deadzone) {
-    moveX = pow(absY - deadzone, 1.4) * 0.9;
+    moveX = pow(absY - deadzone, 1.4) * sensitivityX;
   } else if (y < -deadzone) {
-    moveX = -pow(absY - deadzone, 1.4) * 0.9;
+    moveX = -pow(absY - deadzone, 1.4) * sensitivityX;
   }
 
   if (x > deadzone) {
