@@ -58,6 +58,69 @@ This project explores how raw motion sensor data can be transformed into a usabl
 7. In scroll mode, tilt is converted into scroll velocity with decay for inertia.
 8. Hardware buttons are mapped to BLE left click, right click, and mode toggle events.
 
+## ROS2 Air Mouse Turtle Controller
+
+A ROS2-based control project that uses the ESP32 / MPU6050 air mouse prototype to control `turtlesim` through physical hand motion. IMU tilt data is sent from the microcontroller to an Ubuntu Linux machine over serial communication, then converted into ROS2 turtle movement commands.
+
+### Features
+
+- Reads IMU tilt data from ESP32 through serial communication
+- Converts physical hand movement into turtle movement commands
+- Publishes velocity commands to `turtlesim` using `geometry_msgs/Twist`
+- Uses a Python-based ROS2 node architecture
+- Maps tilt direction and magnitude to turtle movement
+- Demonstrates real-time hardware-to-ROS2 interaction
+- Includes debugging of calibration, serial input, and ROS2 node behavior
+
+### Hardware
+
+- ESP32
+- MPU6050
+- USB connection to Ubuntu machine
+
+### Software
+
+- ROS2 Jazzy
+- Python
+- Arduino IDE
+- Ubuntu Linux
+- turtlesim
+- Serial communication
+- `geometry_msgs/Twist`
+
+### What I Learned
+
+- ROS2 node development
+- ROS2 topic publishing
+- Hardware-to-software integration
+- IMU motion input processing
+- Serial data parsing
+- Debugging Python indentation and `TabError` issues
+- IMU calibration and center-point tuning
+- Mapping physical tilt values into robot movement commands
+
+### Challenges
+
+- Turtle initially rotated continuously because of IMU calibration offset
+- Python indentation caused `TabError` during development
+- Center values and tilt thresholds required tuning
+- Serial data flow between ESP32 and ROS2 needed debugging
+
+### Portfolio / CV Highlights
+
+- Built a ROS2 `turtlesim` controller using ESP32 / MPU6050 motion input and serial communication.
+- Developed a Python ROS2 node to convert IMU tilt data into velocity commands.
+- Integrated hardware sensor input with ROS2 topic-based control using `geometry_msgs/Twist`.
+- Debugged IMU calibration, serial communication, and ROS2 Python node issues during development.
+
+### Future Improvements
+
+- Add smoother motion filtering
+- Add adjustable sensitivity
+- Add mode switching
+- Connect the controller to a real robot platform
+- Use the air mouse as a ROS2 teleoperation device
+
 ## Repository Structure
 
 ```text
@@ -107,4 +170,4 @@ Functional prototype completed. The current build demonstrates BLE pairing, curs
 - Design a compact enclosure or custom PCB
 - Add presentation mode for slide control
 - Add gesture shortcuts
-- Explore ROS2 integration for robotics control experiments
+- Extend the ROS2 controller beyond `turtlesim` to a real robot platform
